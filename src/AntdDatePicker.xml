@@ -5,13 +5,66 @@
         xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Antd Date Picker</name>
     <description>A powerful Mendix pluggable widget used to pick date and time. It brings the ant-deign widget DatePicker into Mendix and implements almost all the features of the original widget.</description>
+    <studioProCategory>Ant Design Widgets</studioProCategory>
+    <studioCategory>Ant Design Widgets</studioCategory>
+    <helpUrl>https://github.com/zjh1943/mendix-antd-date-picker/blob/main/README.md</helpUrl>
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
-                <caption>Default value</caption>
-                <description>Sample text input</description>
-            </property>
+            <propertyGroup caption="Main">
+                <property key="picker" type="enumeration" defaultValue="date">
+                    <caption>Picker type</caption>
+                    <description></description>
+                    <enumerationValues>
+                        <enumerationValue key="date">Date</enumerationValue>
+                        <enumerationValue key="week">Week</enumerationValue>
+                        <enumerationValue key="month">Month</enumerationValue>
+                        <enumerationValue key="quarter">Quarter</enumerationValue>
+                        <enumerationValue key="year">Year</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="format" type="string" required="false">
+                    <caption>Format</caption>
+                    <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss.</description>
+                </property>
+                <property key="sampleText" type="string" required="false">
+                    <caption>Default value</caption>
+                    <description>Sample text input</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Control">
+                <property key="value" type="attribute" required="false">
+                    <caption>Datetime value</caption>
+                    <description>The Datetime value.</description>
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+                <property key="onChange" type="action" required="false">
+                    <caption>On value change</caption>
+                    <description>Will be triggered when the time value is changed.</description>
+                </property>               
+            </propertyGroup>
+            <propertyGroup caption="Views">
+                <property key="showTime" type="boolean" required="true" defaultValue="false">
+                    <caption>Show time</caption>
+                    <description>Whether show time picker on the picker pannel. If yes, you'd better add "HH:mm:ss" to the `format` property to show the time part</description>
+                </property>
+                <property key="placement" type="enumeration" defaultValue="bottomLeft">
+                    <caption>Plannel placement</caption>
+                    <description>On which place is the picker pannel placed to the input frame.</description>
+                    <enumerationValues>
+                        <enumerationValue key="bottomLeft">Bottom Left</enumerationValue>
+                        <enumerationValue key="bottomRight">Bottom Right</enumerationValue>
+                        <enumerationValue key="topLeft">Top Left</enumerationValue>
+                        <enumerationValue key="topRight">Top Right</enumerationValue>
+                    </enumerationValues>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="System">
+                <systemProperty key="Editability" />
+                <systemProperty key="Visibility" />
+            </propertyGroup>
         </propertyGroup>
     </properties>
 </widget>

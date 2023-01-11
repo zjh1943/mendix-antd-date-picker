@@ -4,13 +4,24 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
+import { ActionValue, EditableValue } from "mendix";
+
+export type PickerEnum = "date" | "week" | "month" | "quarter" | "year";
+
+export type PlacementEnum = "bottomLeft" | "bottomRight" | "topLeft" | "topRight";
 
 export interface AntdDatePickerContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
+    picker: PickerEnum;
+    format: string;
     sampleText: string;
+    value?: EditableValue<Date>;
+    onChange?: ActionValue;
+    showTime: boolean;
+    placement: PlacementEnum;
 }
 
 export interface AntdDatePickerPreviewProps {
@@ -22,5 +33,11 @@ export interface AntdDatePickerPreviewProps {
     style: string;
     styleObject?: CSSProperties;
     readOnly: boolean;
+    picker: PickerEnum;
+    format: string;
     sampleText: string;
+    value: string;
+    onChange: {} | null;
+    showTime: boolean;
+    placement: PlacementEnum;
 }
