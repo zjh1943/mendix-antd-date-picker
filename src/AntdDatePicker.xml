@@ -140,5 +140,64 @@
                 </property>
             </propertyGroup>
         </propertyGroup>
+        <propertyGroup caption="Cutomize View">
+            <propertyGroup caption="Common">
+                <property key="size" type="enumeration" required="true" defaultValue="middle">
+                    <caption>Input frame size</caption>
+                    <description></description>
+                    <enumerationValues>
+                        <enumerationValue key="small">Small</enumerationValue>
+                        <enumerationValue key="middle">Middle</enumerationValue>
+                        <enumerationValue key="large">Large</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="placeholder" type="string" required="false">
+                    <caption>Placeholder</caption>
+                    <description></description>
+                </property>
+                <property key="allowClear" type="boolean" required="true" defaultValue="true">
+                    <caption>Allow clear</caption>
+                    <description>Whether show clear button.</description>
+                </property>
+                <property key="bordered" type="boolean" required="true" defaultValue="true">
+                    <caption>Bordered</caption>
+                    <description>Whether show border out of the input frame.</description>
+                </property>
+                <property key="popupClassName" type="string" required="false">
+                    <caption>Class of popup</caption>
+                    <description></description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Shortcuts">
+                <property key="shortcutsDatasource" type="datasource" isList="true" required="false">
+                    <caption>Datasource of shortcuts</caption>
+                    <description>You can use this to dsiplay some shortcut buttons on the picker pannel to reduce the time to choose a right date.</description>
+                </property>
+                <property key="shortcutsLabelAttribute" type="attribute" dataSource="shortcutsDatasource">
+                    <caption>Attribute of label</caption>
+                    <description>Label will be shown on the shortcut button.</description>
+                    <attributeTypes>
+                        <attributeType name="String" />
+                    </attributeTypes>
+                </property>
+                <property key="shortcutsValueAttribute" type="attribute" dataSource="shortcutsDatasource">
+                    <caption>Value Attribute</caption>
+                    <description>When user click the shortcut button, the corresponding datetime will be selected. </description>
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Custom Pannel Footer">
+                <property key="showCustomFooter" type="boolean" defaultValue="false">
+                    <caption>Show custom footer</caption>
+                    <description>Whether show additional widgets on the footer of the picker pannel.</description>
+                </property>
+                <property key="pannelFooterContent" type="widgets" required="false">
+                    <caption>Custom pannel footer</caption>
+                    <description>Put additional widgets on the footer of the picker pannel.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
     </properties>
 </widget>

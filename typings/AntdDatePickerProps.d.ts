@@ -3,7 +3,7 @@
  * WARNING: All changes made to this file will be overwritten
  * @author Mendix Widgets Framework Team
  */
-import { CSSProperties } from "react";
+import { ComponentType, CSSProperties, ReactNode } from "react";
 import { ActionValue, EditableValue, ListValue, ListAttributeValue } from "mendix";
 
 export type PickerEnum = "date" | "week" | "month" | "quarter" | "year";
@@ -13,6 +13,8 @@ export type PlacementEnum = "bottomLeft" | "bottomRight" | "topLeft" | "topRight
 export type LocaleEnum = "zh_CN" | "en_US";
 
 export type DisableDateModeEnum = "off" | "positive" | "negative";
+
+export type SizeEnum = "small" | "middle" | "large";
 
 export interface AntdDatePickerContainerProps {
     name: string;
@@ -37,6 +39,16 @@ export interface AntdDatePickerContainerProps {
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource?: ListValue;
     disableDatesAttribute?: ListAttributeValue<Date>;
+    size: SizeEnum;
+    placeholder: string;
+    allowClear: boolean;
+    bordered: boolean;
+    popupClassName: string;
+    shortcutsDatasource?: ListValue;
+    shortcutsLabelAttribute?: ListAttributeValue<string>;
+    shortcutsValueAttribute?: ListAttributeValue<Date>;
+    showCustomFooter: boolean;
+    pannelFooterContent?: ReactNode;
 }
 
 export interface AntdDatePickerPreviewProps {
@@ -66,4 +78,14 @@ export interface AntdDatePickerPreviewProps {
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource: {} | { type: string } | null;
     disableDatesAttribute: string;
+    size: SizeEnum;
+    placeholder: string;
+    allowClear: boolean;
+    bordered: boolean;
+    popupClassName: string;
+    shortcutsDatasource: {} | { type: string } | null;
+    shortcutsLabelAttribute: string;
+    shortcutsValueAttribute: string;
+    showCustomFooter: boolean;
+    pannelFooterContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
 }
