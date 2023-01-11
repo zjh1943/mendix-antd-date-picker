@@ -44,6 +44,8 @@ export interface AntdDatePickerContainerProps {
     allowClear: boolean;
     bordered: boolean;
     popupClassName: string;
+    showToday: boolean;
+    showNow: boolean;
     shortcutsDatasource?: ListValue;
     shortcutsLabelAttribute?: ListAttributeValue<string>;
     shortcutsValueAttribute?: ListAttributeValue<Date>;
@@ -83,6 +85,8 @@ export interface AntdDatePickerPreviewProps {
     allowClear: boolean;
     bordered: boolean;
     popupClassName: string;
+    showToday: boolean;
+    showNow: boolean;
     shortcutsDatasource: {} | { type: string } | null;
     shortcutsLabelAttribute: string;
     shortcutsValueAttribute: string;

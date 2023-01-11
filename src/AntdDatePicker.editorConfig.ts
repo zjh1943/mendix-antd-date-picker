@@ -107,6 +107,9 @@ export function getProperties(values: AntdDatePickerPreviewProps, defaultPropert
     if (values.showCustomFooter === false) {
         hidePropertyIn(defaultProperties, values, "pannelFooterContent");
     }
+    if (values.showTime === false) {
+        hidePropertyIn(defaultProperties, values, "showNow");
+    }
     return defaultProperties;
 }
 

@@ -25,7 +25,7 @@
                 </property>
                 <property key="format" type="string" required="false">
                     <caption>Format</caption>
-                    <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss.</description>
+                    <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set the default format for different picker types.</description>
                 </property>
                 <property key="sampleText" type="string" required="false">
                     <caption>Default value</caption>
@@ -103,6 +103,10 @@
                     <caption>On open change</caption>
                     <description>Will be triggered when the picker pannel is opened or closed.</description>
                 </property>
+                <property key="onOk" type="action" required="false">
+                    <caption>On OK click</caption>
+                    <description>Will be triggered when click ok button</description>
+                </property>
             </propertyGroup>
             <propertyGroup caption="Picker Value">
                 <property key="pickerValue" type="attribute" required="false">
@@ -169,6 +173,14 @@
                 </property>
             </propertyGroup>
             <propertyGroup caption="Shortcuts">
+                <property key="showToday" type="boolean" defaultValue="true">
+                    <caption>Show today button</caption>
+                    <description></description>
+                </property>
+                <property key="showNow" type="boolean" defaultValue="false">
+                    <caption>Show now button</caption>
+                    <description>Whether to show 'Now' button on panel when show time is set.</description>
+                </property>
                 <property key="shortcutsDatasource" type="datasource" isList="true" required="false">
                     <caption>Datasource of shortcuts</caption>
                     <description>You can use this to dsiplay some shortcut buttons on the picker pannel to reduce the time to choose a right date.</description>
