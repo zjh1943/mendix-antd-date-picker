@@ -27,10 +27,6 @@
                     <caption>Format</caption>
                     <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set the default format for different picker types.</description>
                 </property>
-                <property key="sampleText" type="string" required="false">
-                    <caption>Default value</caption>
-                    <description>Sample text input</description>
-                </property>
             </propertyGroup>
             <propertyGroup caption="Control">
                 <property key="value" type="attribute" required="false">
@@ -68,10 +64,6 @@
         </propertyGroup>
         <propertyGroup caption="Advanced">
             <propertyGroup caption="Main">
-                <property key="allowEmpty" type="boolean" defaultValue="false">
-                    <caption>Allow value empty</caption>
-                    <description></description>
-                </property>
                 <property key="autoFocus" type="boolean" required="true" defaultValue="false">
                     <caption>Auto focus</caption>
                     <description>Whether auto get focus when shown.</description>
@@ -109,16 +101,12 @@
                 </property>
             </propertyGroup>
             <propertyGroup caption="Picker Value">
-                <property key="pickerValue" type="attribute" required="false">
-                    <caption>Picker value </caption>
-                    <description>The DateTime value that a user just selected on the picker pannel.</description>
+                <property key="defaultPickerValue" type="attribute" required="false">
+                    <caption>Default Picker value </caption>
+                    <description>To set default picker date.</description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>
-                </property>
-                <property key="onPickerValueChange" type="action" required="false">
-                    <caption>On picker value change</caption>
-                    <description>Will be triggered when user select a date on the picker pannel.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Disable Date">
