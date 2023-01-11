@@ -34,8 +34,8 @@
             </propertyGroup>
             <propertyGroup caption="Control">
                 <property key="value" type="attribute" required="false">
-                    <caption>Datetime value</caption>
-                    <description>The Datetime value.</description>
+                    <caption>Value</caption>
+                    <description>The datetime value that user select.</description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>
@@ -64,6 +64,80 @@
             <propertyGroup caption="System">
                 <systemProperty key="Editability" />
                 <systemProperty key="Visibility" />
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Advanced">
+            <propertyGroup caption="Main">
+                <property key="allowEmpty" type="boolean" defaultValue="false">
+                    <caption>Allow value empty</caption>
+                    <description></description>
+                </property>
+                <property key="autoFocus" type="boolean" required="true" defaultValue="false">
+                    <caption>Auto focus</caption>
+                    <description>Whether auto get focus when shown.</description>
+                </property>
+                <property key="inputReadOnly" type="boolean" required="true" defaultValue="false">
+                    <caption>Input readonly</caption>
+                    <description>Set the input as readonly.So that, when on mobile device, the virtual keyboard will not be open.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Locale">
+                <property key="locale" type="enumeration" defaultValue="zh_CN" >
+                    <caption>Locale</caption>
+                    <description>Set the display language. Currently only support zh_CN and en_US </description>
+                    <enumerationValues>
+                        <enumerationValue key="zh_CN">zh_CN</enumerationValue>
+                        <enumerationValue key="en_US">en_US</enumerationValue>
+                    </enumerationValues>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Picker Open State">
+                <property key="open" type="attribute" required="false">
+                    <caption>Picker open</caption>
+                    <description>An attribute to control the open status of the picker.</description>
+                    <attributeTypes>
+                        <attributeType name="Boolean" />
+                    </attributeTypes>
+                </property>
+                <property key="onOpenChange" type="action" required="false">
+                    <caption>On open change</caption>
+                    <description>Will be triggered when the picker pannel is opened or closed.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Picker Value">
+                <property key="pickerValue" type="attribute" required="false">
+                    <caption>Picker value </caption>
+                    <description>The DateTime value that a user just selected on the picker pannel.</description>
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+                <property key="onPickerValueChange" type="action" required="false">
+                    <caption>On picker value change</caption>
+                    <description>Will be triggered when user select a date on the picker pannel.</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Disable Date">
+                <property key="disableDateMode" type="enumeration" defaultValue="off">
+                    <caption>Disable mode</caption>
+                    <description>Disable some dates, so that some invalid dates can not be choosen by user. 'Off' means no date will be disabled. 'Positive' means the dates you set below are the only available dates. 'Negative' means that all the dates excepet for the dates you set below are available.</description>
+                    <enumerationValues>
+                        <enumerationValue key="off">Off</enumerationValue>
+                        <enumerationValue key="positive">Positive</enumerationValue>
+                        <enumerationValue key="negative">Negative</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="disableDatesDatasource" type="datasource" isList="true" required="false">
+                    <caption>Disable datasource</caption>
+                    <description></description>
+                </property>
+                <property key="disableDatesAttribute" type="attribute" dataSource="disableDatesDatasource">
+                    <caption>Disable attribute</caption>
+                    <description></description>
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
             </propertyGroup>
         </propertyGroup>
     </properties>

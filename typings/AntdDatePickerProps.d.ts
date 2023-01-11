@@ -4,11 +4,15 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
-import { ActionValue, EditableValue } from "mendix";
+import { ActionValue, EditableValue, ListValue, ListAttributeValue } from "mendix";
 
 export type PickerEnum = "date" | "week" | "month" | "quarter" | "year";
 
 export type PlacementEnum = "bottomLeft" | "bottomRight" | "topLeft" | "topRight";
+
+export type LocaleEnum = "zh_CN" | "en_US";
+
+export type DisableDateModeEnum = "off" | "positive" | "negative";
 
 export interface AntdDatePickerContainerProps {
     name: string;
@@ -22,6 +26,17 @@ export interface AntdDatePickerContainerProps {
     onChange?: ActionValue;
     showTime: boolean;
     placement: PlacementEnum;
+    allowEmpty: boolean;
+    autoFocus: boolean;
+    inputReadOnly: boolean;
+    locale: LocaleEnum;
+    open?: EditableValue<boolean>;
+    onOpenChange?: ActionValue;
+    pickerValue?: EditableValue<Date>;
+    onPickerValueChange?: ActionValue;
+    disableDateMode: DisableDateModeEnum;
+    disableDatesDatasource?: ListValue;
+    disableDatesAttribute?: ListAttributeValue<Date>;
 }
 
 export interface AntdDatePickerPreviewProps {
@@ -40,4 +55,15 @@ export interface AntdDatePickerPreviewProps {
     onChange: {} | null;
     showTime: boolean;
     placement: PlacementEnum;
+    allowEmpty: boolean;
+    autoFocus: boolean;
+    inputReadOnly: boolean;
+    locale: LocaleEnum;
+    open: string;
+    onOpenChange: {} | null;
+    pickerValue: string;
+    onPickerValueChange: {} | null;
+    disableDateMode: DisableDateModeEnum;
+    disableDatesDatasource: {} | { type: string } | null;
+    disableDatesAttribute: string;
 }
