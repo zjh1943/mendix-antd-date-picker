@@ -1,50 +1,53 @@
 ## Introducation
 ![GitHub all releases](https://img.shields.io/github/downloads/zjh1943/mendix-antd-date-picker/total?style=social)
 
-[中文文档](./README-CN.md)  
+[English Document](./README.md)  
 
-AntdDatePicker ([Github](https://github.com/zjh1943/mendix-antd-date-picker)) is a powerful Mendix pluggable widget used to pick date and time. It brings the [DatePicker](https://ant.design/components/date-picker-cn#rangepicker) widget from Ant Design into Mendix and implements almost all the features of the original widget.
+AntdDatePicker ([Github](https://github.com/zjh1943/mendix-antd-date-picker)) 是一个用来选择日期或时间的 Mendix Widget。它把 Ant Design 中的 [DatePicker](https://ant.design/components/date-picker-cn#rangepicker) 组件搬到 Mendix 世界，实现了其原始组件的绝大部分特性。
 
 ![antd date picker](./doc/DatePicker.png)
 
-## Features
-1. Support multiple time unit choices, including: `date`, `week`, `month`, `quarter`, `year`.
-2. Support custom date display format, such as: `yyyy-DD-mm`, `dddd-DD-mm hh:MM:ss`. 2.
-2. Support adding cutomized shortcut buttons to select time period with one click.
-3. support time selection accurate to hours, minutes and seconds.
-4. Support setting non-selectable dates. 
-5. Support multiple languages. 
-6. Support Mendix's Validation Feedback feature.
+## 功能特性
 
-## Quick Use
+1. 支持多种时间单位的选择，包括：`date`, `week`, `month`, `quarter`, `year`.
+2. 支持自定义日期显示格式，比如：`yyyy-DD-mm`, `dddd-DD-mm hh:MM:ss`.
+2. 支持添加常用快捷按钮，一键选择日期/时间。
+3. 支持精确到时分秒的时间选择。
+4. 支持自定义不可选择的日期。
+5. 支持定义多国语言。
+6. 支持 Mendix 的 Validation Feedback 功能。
+
+## 快速安装和使用
 <details>
-<summary><h3>1. Add this widget to the Mendix Project</h3></summary>
+<summary><h3>1. 将该组件添加到 Mendix Project 中</h3></summary>
 
-1. Download the mpk file from [here](https://github.com/zjh1943/mendix-antd-date-picker/releases).
-3. Copy the mpk file to your Mendix Project directory `{YourMendixProjectFolder}/widgets/`.
-4. Open your Mendix Project with Mendix Studio Pro and click on the menu `Menu > App > Synchronize App Directory`.
+1. 从[这里](https://github.com/zjh1943/mendix-antd-date-picker/releases)下载 mpk 文件.
+3. 把 mpk 文件复制到你的 Mendix Project 目录 `{YourMendixProjectFolder}/widgets/`.
+4. 用 Mendix Studio Pro 打开你的 Mendix Project，然后点击菜单 `Menu > App > Synchronize App Directory`.
+
 </details>
 
 <details>
-<summary><h3>2. Set properties of the widget</h3></summary>
+<summary><h3>2. 配置组件属性</h3></summary>
 
-1. Select any page, add a `DataView` to the page, and set the `Datasource` for the `DataView`. The Datasource should be an Entity that having at least 1 DateTime attribute.![Alt text](doc/quick-use-step-1.png)![Alt text](doc/quick-use-step-1.1.png)
-2. Add the `Antd Date Picker` widget to the `DataView` above. It can be found in the Toolbox on the right side of Mendix Studio Pro. ![Alt text](doc/quick-use-step-2.png)
-3. Set the necessary properties for the widget, including `Picker Type`, `Date value`, `On value change` :
-    * Set `Picker type`. Select the default `Date` type.
-    * Set `Date value` as an DateTime attribute of the Datasource entity. This property is used to set and read the date value of the widget.
-    * Set `On value change` to `Nanoflow` and choose `create a new Nanoflow`. ![Alt text](doc/quick-use-step-3.png)
-    * Read and print the `Start time` and `End time` properties in this `Nanoflow`. ![Alt text](doc/quick-use-step-4.png)
-4. Run.
+1. 选择任意页面，向页面添加一个 `DataView`，并为 `DataView` 设置好 `Datasource`。`Datesource` 应该被设置为一个 Entity，这个 Entity 至少有一个类型为 Datetime 的属性。![Alt text](doc/quick-use-step-1.png)![Alt text](doc/quick-use-step-1.1.png)
+2. 向上述 `DataView` 中添加 `Antd Date Range Picker` 组件。可以从 Mendix Studio Pro 的右侧 Toolbox 中找到。![Alt text](doc/quick-use-step-2.png)
+3. 为该组件设置必要的属性。包括： `Picker Type`, `Date value`, `On value change` :
+    * 设置 `Picker type`。可选择默认的 `Date`。
+    * 设置 `Date value` 为实体的一个属性。用来设置和读取用户选择的时间。
+    * 设置 `On value change` 为 `Nanoflow`，选择新建一个 `Nanoflow`。![Alt text](doc/quick-use-step-3.jpg)
+    * 在该 `Nanoflow` 中读取和打印 `Date value` 属性。![Alt text](doc/quick-use-step-4.png)
+4. 运行。
+
 
 </details>
 
 ## Demo project
 
-1. You can access the online demo from [here](https://demo-antdwidgets100.apps.ap-2a.mendixcloud.com) to show the features of this widget.   
-2. You can also download the demo project from [here](https://github.com/zjh1943/mendx-antd-widgets-show) to run it on your own PC.
+1. 你可以在[这里](https://demo-antdwidgets-sandbox.mxapps.io/)访问在线 demo。  
+2. 也可以从[这里](https://github.com/zjh1943/mendx-antd-widgets-show)下载 demo project，在自己的 Mendix Studio Pro 上启动运行。  
     
-## Datail of properties
+## 详细配置说明
 
 ### General
 
@@ -121,13 +124,12 @@ Properties to customize the view of the widget.
 
 </details>
 
-## Comparison with `antd` `RangePicker` features
+## 与 `antd` RangePicker 的功能对比
 
 <details>
 <summary>Click to show detail</summary>
 
-All the properties of `DatePicker` in `antd` are listed here, with an explanation of whether the widget supports the property and why it does not. To see the meaning of the original property in `antd`, please [move here](https://ant.design/components/date-picker-cn).
-
+这里列举了 `antd` 中 `RangePicker` 的所有参数，并说明了该组件是否支持该属性，以及不支持的原因。如果想查看`antd`中原属性的含义，请[移步这里](https://ant.design/components/date-picker-cn)。
 
 | Property              | Property Description                                                                                                                                                             | Property Type                                                             | Implement or not |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ---------------- |
