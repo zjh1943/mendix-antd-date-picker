@@ -32,7 +32,7 @@ AntdDatePicker ([Github](https://github.com/zjh1943/mendix-antd-date-picker)) is
 2. Add the `Antd Date Picker` widget to the `DataView` above. It can be found in the Toolbox on the right side of Mendix Studio Pro. ![Alt text](doc/quick-use-step-2.png)
 3. Set the necessary properties for the widget, including `Picker Type`, `Start time`, `End time`, `On value change` :
     * Set `Picker type`. Select the default `Date` type.
-    * Set `Time value` as an DateTime attribute of the Datasource entity. This property is used to set and read the time value of the widget.
+    * Set `Date value` as an DateTime attribute of the Datasource entity. This property is used to set and read the date value of the widget.
     * Set `On value change` to `Nanoflow` and choose `create a new Nanoflow`. ![Alt text](doc/quick-use-step-3.png)
     * Read and print the `Start time` and `End time` properties in this `Nanoflow`. ![Alt text](doc/quick-use-step-4.png)
 4. Run.
@@ -58,7 +58,7 @@ Properties to control the most important behaviors or display of the widget. You
 * Picker type. Support values: `date`, `week`, `month`, `quarter`, `year`. If you set it as `quarter`，you picker will display like this: ![](./doc/render-result-picker-type-quarter.png)
 * Format. The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss.
 * Value. The datetime value that user select. You need to choose a attribute of a entity.
-* On value Change. Will be triggered when the time value is changed.
+* On value Change. Will be triggered when the date value is changed.
 * Show time. Whether show time picker on the picker pannel. If yes, you'd better add "HH:mm:ss" to the `format` property to show the time part. It looks like this: ![](./doc/render-result-show-time.png)
 * Plannel placement. On which place is the picker pannel placed to the input frame. support values like: Bottom Left, Bottom Right, Top Left, Top Right.
 
@@ -83,7 +83,7 @@ Properties to control the behavior of the widget, which is not must for normal u
     * On open change. Will be triggered when the picker pannel is opened or closed.
     * On OK cick. Will be triggered when click ok button. The ok button will be showd when "Show time" is true.
 * Picker Value. (not support any more)
-    * Default Picker value. The default time value on the picker pannel.
+    * Default Picker value. The default date value on the picker pannel.
 * Disable Date. 
     * Disable mode. Disable some dates, so that some invalid dates can not be choosen by user. 
         - 'Off' means no date will be disabled. 

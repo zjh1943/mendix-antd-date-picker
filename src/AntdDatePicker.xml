@@ -30,7 +30,7 @@
             </propertyGroup>
             <propertyGroup caption="Control">
                 <property key="value" type="attribute" required="false">
-                    <caption>Value</caption>
+                    <caption>Date value</caption>
                     <description>The datetime value that user select.</description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
@@ -38,7 +38,7 @@
                 </property>
                 <property key="onChange" type="action" required="false">
                     <caption>On value change</caption>
-                    <description>Will be triggered when the time value is changed.</description>
+                    <description>Will be triggered when the date value is changed.</description>
                 </property>               
             </propertyGroup>
             <propertyGroup caption="Views">
