@@ -97,7 +97,7 @@
                 </property>
                 <property key="onOk" type="action" required="false">
                     <caption>On OK click</caption>
-                    <description>Will be triggered when click ok button</description>
+                    <description>Will be triggered when click ok button.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Picker Value">
