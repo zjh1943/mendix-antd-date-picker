@@ -92,26 +92,37 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
             pickerProps.defaultPickerValue = dayjs(props.defaultPickerValue?.value);
         }
 
-        if (props.disableDateMode !== "off" && props.disableDatesDatasource?.status === "available") {
+        if (props.disableDateMode !== "off") {
             pickerProps.disabledDate = date => {
+                if (props.disableDatesDatasource?.status !== "available") {
+                    return false;
+                }
+                // console.log(`begin check disable. date = ${date}`);
                 if (props.disableDateMode === "negative") {
-                    props.disableDatesDatasource?.items?.forEach((item: any) => {
+                    // console.log('begin check disable. negative mode');
+                    for ( const item of props.disableDatesDatasource?.items! ) {
                         const newDate = dayjs(props.disableDatesAttribute?.get(item).value);
                         if (date.isSame(newDate, "day")) {
+                            // console.log(`begin check disable. disable = false`);
                             return true;
                         }
-                    });
+                    }
+                    // console.log(`begin check disable. disable = true`);
                     return false;
-                } else {
-                    // props.disableDateMode === "positive"
-                    props.disableDatesDatasource?.items?.forEach((item: any) => {
+                } 
+                if (props.disableDateMode === "positive") {
+                    // console.log('begin check disable. positive mode');
+                    for ( const item of props.disableDatesDatasource?.items! ) {
                         const newDate = dayjs(props.disableDatesAttribute?.get(item).value);
                         if (date.isSame(newDate, "day")) {
+                            // console.log(`begin check disable. disable = false`);
                             return false;
                         }
-                    });
+                    }
+                    // console.log(`begin check disable. disable = true`);
                     return true;
                 }
+                return false;
             };
         }
 
