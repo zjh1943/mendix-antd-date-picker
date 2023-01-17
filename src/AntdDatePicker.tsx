@@ -98,19 +98,19 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
                     props.disableDatesDatasource?.items?.forEach((item: any) => {
                         const newDate = dayjs(props.disableDatesAttribute?.get(item).value);
                         if (date.isSame(newDate, "day")) {
-                            return false;
+                            return true;
                         }
                     });
-                    return true;
+                    return false;
                 } else {
                     // props.disableDateMode === "positive"
                     props.disableDatesDatasource?.items?.forEach((item: any) => {
                         const newDate = dayjs(props.disableDatesAttribute?.get(item).value);
                         if (date.isSame(newDate, "day")) {
-                            return true;
+                            return false;
                         }
                     });
-                    return false;
+                    return true;
                 }
             };
         }
