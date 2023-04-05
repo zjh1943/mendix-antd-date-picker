@@ -119,7 +119,7 @@ export function getProperties(
     if (values.showTime === false) {
         hidePropertyIn(defaultProperties, values, "showNow");
     }
-    if (values.dateRenderEnabled == false) {
+    if (values.dateRenderEnabled === false) {
         hidePropertiesIn(defaultProperties, values, [
             "dateRenderAttribute",
             "dateRenderDatasource",
@@ -179,7 +179,7 @@ export function getPreview(values: AntdDatePickerPreviewProps, _isDarkMode: bool
             }
         ]
     };
-    let childrenPreview = [calendarInputPreview];
+    const childrenPreview = [calendarInputPreview];
     if (values.dateRenderEnabled) {
         const dateRenderPreview: PreviewProps = {
             type: "Container",
