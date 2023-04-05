@@ -123,7 +123,7 @@ export function getProperties(
         hidePropertiesIn(defaultProperties, values, [
             "dateRenderAttribute",
             "dateRenderDatasource",
-            "dateRenderWidgets"
+            "dateRenderContent"
         ]);
     }
     return defaultProperties;
@@ -148,43 +148,54 @@ export function getPreview(values: AntdDatePickerPreviewProps, _isDarkMode: bool
     // Customize your pluggable widget appearance for Studio Pro.
     const calendarSvgImage = `<svg viewBox="64 64 896 896" focusable="false" data-icon="calendar" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"></path></svg>`;
     const calendarInputPreview: PreviewProps = {
-        type: "RowLayout",
-        columnSize: "grow",
-        padding: 5,
-        borders: true,
-        borderWidth: 1,
-        borderRadius: 5,
+        type: "Container",
         children: [
             {
-                type: "Container",
-                grow: 1,
+                type: "RowLayout",
+                columnSize: "grow",
+                padding: 5,
+                borders: true,
+                borderWidth: 1,
+                borderRadius: 5,
                 children: [
                     {
-                        type: "Text",
-                        fontSize: 10,
-                        content: "Datetime Value"
+                        type: "Container",
+                        grow: 1,
+                        children: [
+                            {
+                                type: "Text",
+                                fontSize: 10,
+                                content: "Datetime Value"
+                            }
+                        ]
+                    },
+                    {
+                        type: "Image",
+                        document: calendarSvgImage,
+                        grow: 0,
+                        height: 16
                     }
                 ]
-            },
-            {
-                type: "Image",
-                document: calendarSvgImage,
-                grow: 0,
-                height: 16
-            },
-            {
-                type: "DropZone",
-                property: values.dateRenderWidgets,
-                placeholder: "Custom Date Render: Place widgets here"
             }
         ]
     };
-    if (!values.showCustomFooter) {
-        return {
+    let childrenPreview = [calendarInputPreview];
+    if (values.dateRenderEnabled) {
+        const dateRenderPreview: PreviewProps = {
             type: "Container",
-            children: [calendarInputPreview]
+            borders: true,
+            borderWidth: 1,
+            children: [
+                {
+                    type: "DropZone",
+                    property: values.dateRenderContent,
+                    placeholder: "Drop your custom date render content here"
+                }
+            ]
         };
-    } else {
+        childrenPreview.push(dateRenderPreview);
+    }
+    if (values.showCustomFooter) {
         const customFooterPreview: PreviewProps = {
             type: "Container",
             borders: true,
@@ -197,11 +208,12 @@ export function getPreview(values: AntdDatePickerPreviewProps, _isDarkMode: bool
                 }
             ]
         };
-        return {
-            type: "Container",
-            children: [calendarInputPreview, customFooterPreview]
-        };
+        childrenPreview.push(customFooterPreview);
     }
+    return {
+        type: "Container",
+        children: childrenPreview
+    };
 }
 
 // export function getCustomCaption(values: AntdDatePickerPreviewProps, platform: Platform): string {

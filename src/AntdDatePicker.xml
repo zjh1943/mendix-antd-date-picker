@@ -152,7 +152,7 @@
                         <attributeType name="DateTime" />
                     </attributeTypes>
                 </property>
-                <property key="dateRenderWidgets" type="widgets" dataSource="dateRenderDatasource">
+                <property key="dateRenderContent" type="widgets" required="false" dataSource="dateRenderDatasource">
                     <caption>Custom Date Widgets</caption>
                     <description />
                 </property>

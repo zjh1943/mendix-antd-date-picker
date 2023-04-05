@@ -40,7 +40,7 @@ export interface AntdDatePickerContainerProps {
     dateRenderEnabled: boolean;
     dateRenderDatasource?: ListValue;
     dateRenderAttribute?: ListAttributeValue<Date>;
-    dateRenderWidgets?: ListWidgetValue;
+    dateRenderContent?: ListWidgetValue;
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;
@@ -83,7 +83,7 @@ export interface AntdDatePickerPreviewProps {
     dateRenderEnabled: boolean;
     dateRenderDatasource: {} | { type: string } | null;
     dateRenderAttribute: string;
-    dateRenderWidgets: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
+    dateRenderContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;
