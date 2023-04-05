@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="mendix.antddatepicker.AntdDatePicker" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="mendix.antddatepicker.AntdDatePicker" pluginWidget="true" needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Antd Date Picker</name>
-    <description>A powerful Mendix pluggable widget used to pick date and time. It brings the ant-deign widget DatePicker into Mendix and implements almost all the features of the original widget.</description>
+    <description>A powerful Mendix pluggable widget used to pick date and time. It brings the
+        ant-deign widget DatePicker into Mendix and implements almost all the features of the
+        original widget.</description>
     <studioProCategory>Ant Design Widgets</studioProCategory>
     <studioCategory>Ant Design Widgets</studioCategory>
     <helpUrl>https://github.com/zjh1943/mendix-antd-date-picker/blob/main/README.md</helpUrl>
-    <icon/>
+    <icon />
     <properties>
         <propertyGroup caption="General">
             <propertyGroup caption="Main">
@@ -25,7 +28,9 @@
                 </property>
                 <property key="format" type="string" required="false">
                     <caption>Format</caption>
-                    <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set the default format for different picker types.</description>
+                    <description>The format of DateTime value shown on the input frame. e.g.
+                        YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set
+                        the default format for different picker types.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Control">
@@ -39,12 +44,13 @@
                 <property key="onChange" type="action" required="false">
                     <caption>On value change</caption>
                     <description>Will be triggered when the date value is changed.</description>
-                </property>               
+                </property>
             </propertyGroup>
             <propertyGroup caption="Views">
                 <property key="showTime" type="boolean" required="true" defaultValue="false">
                     <caption>Show time</caption>
-                    <description>Whether show time picker on the picker pannel. If yes, you'd better add "HH:mm:ss" to the `format` property to show the time part</description>
+                    <description>Whether show time picker on the picker pannel. If yes, you'd better
+                        add "HH:mm:ss" to the `format` property to show the time part</description>
                 </property>
                 <property key="placement" type="enumeration" defaultValue="bottomLeft">
                     <caption>Plannel placement</caption>
@@ -70,11 +76,12 @@
                 </property>
                 <property key="inputReadOnly" type="boolean" required="true" defaultValue="false">
                     <caption>Input readonly</caption>
-                    <description>Set the input as readonly.So that, when on mobile device, the virtual keyboard will not be open.</description>
+                    <description>Set the input as readonly.So that, when on mobile device, the
+                        virtual keyboard will not be open.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Locale">
-                <property key="locale" type="enumeration" defaultValue="zh_CN" >
+                <property key="locale" type="enumeration" defaultValue="zh_CN">
                     <caption>Locale</caption>
                     <description>Set the display language. Currently only support zh_CN and en_US </description>
                     <enumerationValues>
@@ -112,23 +119,52 @@
             <propertyGroup caption="Disable Date">
                 <property key="disableDateMode" type="enumeration" defaultValue="off">
                     <caption>Disable mode</caption>
-                    <description>Disable some dates, so that some invalid dates can not be choosen by user. 'Off' means no date will be disabled. 'Positive' means the dates you set below are the only available dates. 'Negative' means that all the dates excepet for the dates you set below are available.</description>
+                    <description>Disable some dates, so that some invalid dates can not be choosen
+                        by user. 'Off' means no date will be disabled. 'Positive' means the dates
+                        you set below are the only available dates. 'Negative' means that all the
+                        dates excepet for the dates you set below are available.</description>
                     <enumerationValues>
                         <enumerationValue key="off">Off</enumerationValue>
                         <enumerationValue key="positive">Positive</enumerationValue>
                         <enumerationValue key="negative">Negative</enumerationValue>
                     </enumerationValues>
                 </property>
-                <property key="disableDatesDatasource" type="datasource" isList="true" required="false">
+                <property key="disableDatesDatasource" type="datasource" isList="true"
+                    required="false">
                     <caption>Disable datasource</caption>
                     <description></description>
                 </property>
-                <property key="disableDatesAttribute" type="attribute" dataSource="disableDatesDatasource">
+                <property key="disableDatesAttribute" type="attribute"
+                    dataSource="disableDatesDatasource">
                     <caption>Disable attribute</caption>
                     <description></description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Date Render">
+                <property key="dateRenderEnabled" type="boolean" defaultValue="false">
+                    <caption>Custom Date Render</caption>
+                    <description>Use Mendix content in date render space for appropriate date
+                        objects.</description>
+                </property>
+                <property key="dateRenderDatasource" type="datasource" isList="true"
+                    required="false">
+                    <caption>Custom Date Datasource</caption>
+                    <description />
+                </property>
+                <property key="dateRenderAttribute" type="attribute"
+                    dataSource="dateRenderDatasource">
+                    <caption>Date attribute</caption>
+                    <description />
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+                <property key="dateRenderWidgets" type="widgets" dataSource="dateRenderDatasource">
+                    <caption>Custom Date Widgets</caption>
+                    <description />
                 </property>
             </propertyGroup>
         </propertyGroup>
@@ -171,18 +207,22 @@
                 </property>
                 <property key="shortcutsDatasource" type="datasource" isList="true" required="false">
                     <caption>Datasource of shortcuts</caption>
-                    <description>You can use this to dsiplay some shortcut buttons on the picker pannel to reduce the time to choose a right date.</description>
+                    <description>You can use this to dsiplay some shortcut buttons on the picker
+                        pannel to reduce the time to choose a right date.</description>
                 </property>
-                <property key="shortcutsLabelAttribute" type="attribute" dataSource="shortcutsDatasource">
+                <property key="shortcutsLabelAttribute" type="attribute"
+                    dataSource="shortcutsDatasource">
                     <caption>Attribute of label</caption>
                     <description>Label will be shown on the shortcut button.</description>
                     <attributeTypes>
                         <attributeType name="String" />
                     </attributeTypes>
                 </property>
-                <property key="shortcutsValueAttribute" type="attribute" dataSource="shortcutsDatasource">
+                <property key="shortcutsValueAttribute" type="attribute"
+                    dataSource="shortcutsDatasource">
                     <caption>Value Attribute</caption>
-                    <description>When user click the shortcut button, the corresponding datetime will be selected. </description>
+                    <description>When user click the shortcut button, the corresponding datetime
+                        will be selected. </description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>

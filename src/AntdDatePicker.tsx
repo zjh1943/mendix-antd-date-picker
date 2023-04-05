@@ -124,6 +124,20 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
             };
         }
 
+        if (props.dateRenderEnabled) {
+            pickerProps.dateRender = date => {
+                if (props.dateRenderDatasource?.status === "available" && props.dateRenderWidgets) {
+                    for (const item of props.dateRenderDatasource!.items!) {
+                        const newDate = dayjs(props.dateRenderAttribute?.get(item).value);
+                        if (date.isSame(newDate, "day")) {
+                            return <div className="ant-picker-cell-inner">{props.dateRenderWidgets.get(item)}</div>;
+                        }
+                    }
+                    return <div className="ant-picker-cell-inner">{date.date()}</div>;
+                }
+            };
+        }
+
         // ====================================
         // === property group Cutomize View ===
         // ====================================

@@ -119,6 +119,13 @@ export function getProperties(
     if (values.showTime === false) {
         hidePropertyIn(defaultProperties, values, "showNow");
     }
+    if (values.dateRenderEnabled == false) {
+        hidePropertiesIn(defaultProperties, values, [
+            "dateRenderAttribute",
+            "dateRenderDatasource",
+            "dateRenderWidgets"
+        ]);
+    }
     return defaultProperties;
 }
 
@@ -164,6 +171,11 @@ export function getPreview(values: AntdDatePickerPreviewProps, _isDarkMode: bool
                 document: calendarSvgImage,
                 grow: 0,
                 height: 16
+            },
+            {
+                type: "DropZone",
+                property: values.dateRenderWidgets,
+                placeholder: "Custom Date Render: Place widgets here"
             }
         ]
     };
