@@ -5,9 +5,7 @@
     xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Antd Date Picker</name>
-    <description>A powerful Mendix pluggable widget used to pick date and time. It brings the
-        ant-deign widget DatePicker into Mendix and implements almost all the features of the
-        original widget.</description>
+    <description>A powerful Mendix pluggable widget used to pick date and time. It brings the ant-deign widget DatePicker into Mendix and implements almost all the features of the original widget.</description>
     <studioProCategory>Ant Design Widgets</studioProCategory>
     <studioCategory>Ant Design Widgets</studioCategory>
     <helpUrl>https://github.com/zjh1943/mendix-antd-date-picker/blob/main/README.md</helpUrl>
@@ -28,9 +26,7 @@
                 </property>
                 <property key="format" type="string" required="false">
                     <caption>Format</caption>
-                    <description>The format of DateTime value shown on the input frame. e.g.
-                        YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set
-                        the default format for different picker types.</description>
+                    <description>The format of DateTime value shown on the input frame. e.g. YYYY/MM/DD HH:mm:ss. If you remain it empty, the widget will help you to set the default format for different picker types.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Control">
@@ -49,8 +45,7 @@
             <propertyGroup caption="Views">
                 <property key="showTime" type="boolean" required="true" defaultValue="false">
                     <caption>Show time</caption>
-                    <description>Whether show time picker on the picker pannel. If yes, you'd better
-                        add "HH:mm:ss" to the `format` property to show the time part</description>
+                    <description>Whether show time picker on the picker pannel. If yes, you'd better add "HH:mm:ss" to the `format` property to show the time part</description>
                 </property>
                 <property key="placement" type="enumeration" defaultValue="bottomLeft">
                     <caption>Plannel placement</caption>
@@ -76,8 +71,7 @@
                 </property>
                 <property key="inputReadOnly" type="boolean" required="true" defaultValue="false">
                     <caption>Input readonly</caption>
-                    <description>Set the input as readonly.So that, when on mobile device, the
-                        virtual keyboard will not be open.</description>
+                    <description>Set the input as readonly.So that, when on mobile device, the virtual keyboard will not be open.</description>
                 </property>
             </propertyGroup>
             <propertyGroup caption="Locale">
@@ -119,10 +113,7 @@
             <propertyGroup caption="Disable Date">
                 <property key="disableDateMode" type="enumeration" defaultValue="off">
                     <caption>Disable mode</caption>
-                    <description>Disable some dates, so that some invalid dates can not be choosen
-                        by user. 'Off' means no date will be disabled. 'Positive' means the dates
-                        you set below are the only available dates. 'Negative' means that all the
-                        dates excepet for the dates you set below are available.</description>
+                    <description>Disable some dates, so that some invalid dates can not be choosen by user. 'Off' means no date will be disabled. 'Positive' means the dates you set below are the only available dates. 'Negative' means that all the dates excepet for the dates you set below are available.</description>
                     <enumerationValues>
                         <enumerationValue key="off">Off</enumerationValue>
                         <enumerationValue key="positive">Positive</enumerationValue>
@@ -146,8 +137,7 @@
             <propertyGroup caption="Date Render">
                 <property key="dateRenderEnabled" type="boolean" defaultValue="false">
                     <caption>Custom Date Render</caption>
-                    <description>Use Mendix content in date render space for appropriate date
-                        objects.</description>
+                    <description>Use Mendix content in date render space for appropriate date objects.</description>
                 </property>
                 <property key="dateRenderDatasource" type="datasource" isList="true"
                     required="false">
@@ -207,8 +197,7 @@
                 </property>
                 <property key="shortcutsDatasource" type="datasource" isList="true" required="false">
                     <caption>Datasource of shortcuts</caption>
-                    <description>You can use this to dsiplay some shortcut buttons on the picker
-                        pannel to reduce the time to choose a right date.</description>
+                    <description>You can use this to dsiplay some shortcut buttons on the picker pannel to reduce the time to choose a right date.</description>
                 </property>
                 <property key="shortcutsLabelAttribute" type="attribute"
                     dataSource="shortcutsDatasource">
