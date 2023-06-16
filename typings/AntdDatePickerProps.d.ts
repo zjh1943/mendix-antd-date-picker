@@ -4,7 +4,7 @@
  * @author Mendix Widgets Framework Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-import { ActionValue, EditableValue, ListValue, ListAttributeValue } from "mendix";
+import { ActionValue, EditableValue, ListValue, ListAttributeValue, ListWidgetValue } from "mendix";
 
 export type PickerEnum = "date" | "week" | "month" | "quarter" | "year";
 
@@ -37,6 +37,10 @@ export interface AntdDatePickerContainerProps {
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource?: ListValue;
     disableDatesAttribute?: ListAttributeValue<Date>;
+    dateRenderEnabled: boolean;
+    dateRenderDatasource?: ListValue;
+    dateRenderAttribute?: ListAttributeValue<Date>;
+    dateRenderContent?: ListWidgetValue;
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;
@@ -76,6 +80,10 @@ export interface AntdDatePickerPreviewProps {
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource: {} | { type: string } | null;
     disableDatesAttribute: string;
+    dateRenderEnabled: boolean;
+    dateRenderDatasource: {} | { type: string } | null;
+    dateRenderAttribute: string;
+    dateRenderContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;

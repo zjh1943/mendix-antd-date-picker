@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="mendix.antddatepicker.AntdDatePicker" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+<widget id="mendix.antddatepicker.AntdDatePicker" pluginWidget="true" needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
     <name>Antd Date Picker</name>
     <description>A powerful Mendix pluggable widget used to pick date and time. It brings the ant-deign widget DatePicker into Mendix and implements almost all the features of the original widget.</description>
     <studioProCategory>Ant Design Widgets</studioProCategory>
     <studioCategory>Ant Design Widgets</studioCategory>
     <helpUrl>https://github.com/zjh1943/mendix-antd-date-picker/blob/main/README.md</helpUrl>
-    <icon/>
+    <icon />
     <properties>
         <propertyGroup caption="General">
             <propertyGroup caption="Main">
@@ -39,7 +40,7 @@
                 <property key="onChange" type="action" required="false">
                     <caption>On value change</caption>
                     <description>Will be triggered when the date value is changed.</description>
-                </property>               
+                </property>
             </propertyGroup>
             <propertyGroup caption="Views">
                 <property key="showTime" type="boolean" required="true" defaultValue="false">
@@ -74,7 +75,7 @@
                 </property>
             </propertyGroup>
             <propertyGroup caption="Locale">
-                <property key="locale" type="enumeration" defaultValue="zh_CN" >
+                <property key="locale" type="enumeration" defaultValue="zh_CN">
                     <caption>Locale</caption>
                     <description>Set the display language. Currently only support zh_CN and en_US </description>
                     <enumerationValues>
@@ -119,16 +120,41 @@
                         <enumerationValue key="negative">Negative</enumerationValue>
                     </enumerationValues>
                 </property>
-                <property key="disableDatesDatasource" type="datasource" isList="true" required="false">
+                <property key="disableDatesDatasource" type="datasource" isList="true"
+                    required="false">
                     <caption>Disable datasource</caption>
                     <description></description>
                 </property>
-                <property key="disableDatesAttribute" type="attribute" dataSource="disableDatesDatasource">
+                <property key="disableDatesAttribute" type="attribute"
+                    dataSource="disableDatesDatasource">
                     <caption>Disable attribute</caption>
                     <description></description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Date Render">
+                <property key="dateRenderEnabled" type="boolean" defaultValue="false">
+                    <caption>Custom Date Render</caption>
+                    <description>Use Mendix content in date render space for appropriate date objects.</description>
+                </property>
+                <property key="dateRenderDatasource" type="datasource" isList="true"
+                    required="false">
+                    <caption>Custom Date Datasource</caption>
+                    <description />
+                </property>
+                <property key="dateRenderAttribute" type="attribute"
+                    dataSource="dateRenderDatasource">
+                    <caption>Date attribute</caption>
+                    <description />
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+                <property key="dateRenderContent" type="widgets" required="false" dataSource="dateRenderDatasource">
+                    <caption>Custom Date Widgets</caption>
+                    <description />
                 </property>
             </propertyGroup>
         </propertyGroup>
@@ -173,16 +199,19 @@
                     <caption>Datasource of shortcuts</caption>
                     <description>You can use this to dsiplay some shortcut buttons on the picker pannel to reduce the time to choose a right date.</description>
                 </property>
-                <property key="shortcutsLabelAttribute" type="attribute" dataSource="shortcutsDatasource">
+                <property key="shortcutsLabelAttribute" type="attribute"
+                    dataSource="shortcutsDatasource">
                     <caption>Attribute of label</caption>
                     <description>Label will be shown on the shortcut button.</description>
                     <attributeTypes>
                         <attributeType name="String" />
                     </attributeTypes>
                 </property>
-                <property key="shortcutsValueAttribute" type="attribute" dataSource="shortcutsDatasource">
+                <property key="shortcutsValueAttribute" type="attribute"
+                    dataSource="shortcutsDatasource">
                     <caption>Value Attribute</caption>
-                    <description>When user click the shortcut button, the corresponding datetime will be selected. </description>
+                    <description>When user click the shortcut button, the corresponding datetime
+                        will be selected. </description>
                     <attributeTypes>
                         <attributeType name="DateTime" />
                     </attributeTypes>
