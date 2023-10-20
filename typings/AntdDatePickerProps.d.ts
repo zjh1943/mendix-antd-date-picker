@@ -1,10 +1,10 @@
 /**
  * This file was generated from AntdDatePicker.xml
  * WARNING: All changes made to this file will be overwritten
- * @author Mendix Widgets Framework Team
+ * @author Mendix UI Content Team
  */
 import { ComponentType, CSSProperties, ReactNode } from "react";
-import { ActionValue, EditableValue, ListValue, ListAttributeValue, ListWidgetValue } from "mendix";
+import { ActionValue, DynamicValue, EditableValue, ListValue, ListAttributeValue, ListWidgetValue } from "mendix";
 
 export type PickerEnum = "date" | "week" | "month" | "quarter" | "year";
 
@@ -34,13 +34,20 @@ export interface AntdDatePickerContainerProps {
     onOpenChange?: ActionValue;
     onOk?: ActionValue;
     defaultPickerValue?: EditableValue<Date>;
-    disableDateMode: DisableDateModeEnum;
-    disableDatesDatasource?: ListValue;
-    disableDatesAttribute?: ListAttributeValue<Date>;
     dateRenderEnabled: boolean;
     dateRenderDatasource?: ListValue;
     dateRenderAttribute?: ListAttributeValue<Date>;
     dateRenderContent?: ListWidgetValue;
+    disableDateMode: DisableDateModeEnum;
+    disableDatesDatasource?: ListValue;
+    disableDatesAttribute?: ListAttributeValue<Date>;
+    disableSunday: DynamicValue<boolean>;
+    disableMonday: DynamicValue<boolean>;
+    disableTuesday: DynamicValue<boolean>;
+    disableWednesday: DynamicValue<boolean>;
+    disableThursday: DynamicValue<boolean>;
+    disableFriday: DynamicValue<boolean>;
+    disableSaturday: DynamicValue<boolean>;
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;
@@ -77,13 +84,20 @@ export interface AntdDatePickerPreviewProps {
     onOpenChange: {} | null;
     onOk: {} | null;
     defaultPickerValue: string;
-    disableDateMode: DisableDateModeEnum;
-    disableDatesDatasource: {} | { type: string } | null;
-    disableDatesAttribute: string;
     dateRenderEnabled: boolean;
     dateRenderDatasource: {} | { type: string } | null;
     dateRenderAttribute: string;
     dateRenderContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
+    disableDateMode: DisableDateModeEnum;
+    disableDatesDatasource: {} | { type: string } | null;
+    disableDatesAttribute: string;
+    disableSunday: string;
+    disableMonday: string;
+    disableTuesday: string;
+    disableWednesday: string;
+    disableThursday: string;
+    disableFriday: string;
+    disableSaturday: string;
     size: SizeEnum;
     placeholder: string;
     allowClear: boolean;

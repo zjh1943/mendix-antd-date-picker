@@ -6,10 +6,21 @@ import zh_CN from "antd/es/date-picker/locale/zh_CN";
 import en_US from "antd/es/date-picker/locale/en_US";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
+// import moment from "moment";
 
 import { AntdDatePickerContainerProps } from "../typings/AntdDatePickerProps";
 import { Alert } from "./components/Alert";
 import "./ui/AntdDatePicker.scss";
+
+const hasDisabledDays = (props: AntdDatePickerContainerProps): boolean =>
+    props.disableDateMode !== "off" ||
+    props.disableSunday.value === true ||
+    props.disableMonday.value === true ||
+    props.disableTuesday.value === true ||
+    props.disableWednesday.value === true ||
+    props.disableThursday.value === true ||
+    props.disableFriday.value === true ||
+    props.disableSaturday.value === true;
 
 export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
     render(): ReactNode {
@@ -91,8 +102,29 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
             pickerProps.defaultPickerValue = dayjs(props.defaultPickerValue?.value);
         }
 
-        if (props.disableDateMode !== "off") {
+        if (hasDisabledDays(this.props)) {
             pickerProps.disabledDate = date => {
+                if (props.disableSunday.value === true && date.day() === 0) {
+                    return true;
+                }
+                if (props.disableMonday.value === true && date.day() === 1) {
+                    return true;
+                }
+                if (props.disableTuesday.value === true && date.day() === 2) {
+                    return true;
+                }
+                if (props.disableWednesday.value === true && date.day() === 3) {
+                    return true;
+                }
+                if (props.disableThursday.value === true && date.day() === 4) {
+                    return true;
+                }
+                if (props.disableFriday.value === true && date.day() === 5) {
+                    return true;
+                }
+                if (props.disableSaturday.value === true && date.day() === 6) {
+                    return true;
+                }
                 if (props.disableDatesDatasource?.status === "available") {
                     // console.log(`begin check disable. date = ${date}`);
                     if (props.disableDateMode === "negative") {
