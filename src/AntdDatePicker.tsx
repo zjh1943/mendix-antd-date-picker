@@ -61,7 +61,14 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
         pickerProps.status = hasError ? "error" : undefined;
 
         pickerProps.onChange = value => {
-            props.value?.setValue(value?.toDate());
+            if (props.showTime) {
+                props.value?.setValue(value?.toDate());
+            } else {
+                // if the widget is not showing time, set the date as midnight (same as Mendix date picker)
+                const newDate = value !== null ? new Date(value.year(), value.month(), value.date()) : undefined;
+                props.value?.setValue(newDate);
+            }
+
             if (props.onChange?.canExecute) {
                 props.onChange?.execute();
             }
