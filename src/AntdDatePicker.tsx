@@ -20,7 +20,9 @@ const hasDisabledDays = (props: AntdDatePickerContainerProps): boolean =>
     props.disableWednesday.value === true ||
     props.disableThursday.value === true ||
     props.disableFriday.value === true ||
-    props.disableSaturday.value === true;
+    props.disableSaturday.value === true ||
+    props.minDate?.value !== undefined ||
+    props.maxDate?.value !== undefined;
 
 export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
     render(): ReactNode {
@@ -111,6 +113,13 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
 
         if (hasDisabledDays(this.props)) {
             pickerProps.disabledDate = date => {
+                if (props.minDate?.value !== undefined && date.isBefore(props.minDate.value, "day")) {
+                    return true;
+                }
+                if (props.maxDate?.value !== undefined && date.isAfter(props.maxDate.value, "day")) {
+                    return true;
+                }
+
                 if (props.disableSunday.value === true && date.day() === 0) {
                     return true;
                 }

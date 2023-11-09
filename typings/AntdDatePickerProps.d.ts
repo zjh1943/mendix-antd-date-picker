@@ -38,6 +38,8 @@ export interface AntdDatePickerContainerProps {
     dateRenderDatasource?: ListValue;
     dateRenderAttribute?: ListAttributeValue<Date>;
     dateRenderContent?: ListWidgetValue;
+    minDate?: DynamicValue<Date>;
+    maxDate?: DynamicValue<Date>;
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource?: ListValue;
     disableDatesAttribute?: ListAttributeValue<Date>;
@@ -88,6 +90,8 @@ export interface AntdDatePickerPreviewProps {
     dateRenderDatasource: {} | { type: string } | null;
     dateRenderAttribute: string;
     dateRenderContent: { widgetCount: number; renderer: ComponentType<{ caption?: string }> };
+    minDate: string;
+    maxDate: string;
     disableDateMode: DisableDateModeEnum;
     disableDatesDatasource: {} | { type: string } | null;
     disableDatesAttribute: string;

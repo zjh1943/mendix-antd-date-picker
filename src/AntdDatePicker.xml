@@ -137,6 +137,18 @@
             </propertyGroup>
         </propertyGroup>
         <propertyGroup caption="Disable Date">
+            <propertyGroup caption="Disable range">
+                <property key="minDate" type="expression" required="false">
+                    <caption>Min date</caption>
+                    <description></description>
+                    <returnType type="DateTime" />
+                </property>
+                <property key="maxDate" type="expression" required="false">
+                    <caption>Max date</caption>
+                    <description></description>
+                    <returnType type="DateTime" />
+                </property>
+            </propertyGroup>
             <propertyGroup caption="Disable specific days">
                 <property key="disableDateMode" type="enumeration" defaultValue="off">
                     <caption>Disable mode</caption>
