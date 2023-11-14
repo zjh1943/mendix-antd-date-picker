@@ -110,7 +110,46 @@
                     </attributeTypes>
                 </property>
             </propertyGroup>
-            <propertyGroup caption="Disable Date">
+
+            <propertyGroup caption="Date Render">
+                <property key="dateRenderEnabled" type="boolean" defaultValue="false">
+                    <caption>Custom Date Render</caption>
+                    <description>Use Mendix content in date render space for appropriate date objects.</description>
+                </property>
+                <property key="dateRenderDatasource" type="datasource" isList="true"
+                    required="false">
+                    <caption>Custom Date Datasource</caption>
+                    <description />
+                </property>
+                <property key="dateRenderAttribute" type="attribute"
+                    dataSource="dateRenderDatasource">
+                    <caption>Date attribute</caption>
+                    <description />
+                    <attributeTypes>
+                        <attributeType name="DateTime" />
+                    </attributeTypes>
+                </property>
+                <property key="dateRenderContent" type="widgets" required="false"
+                    dataSource="dateRenderDatasource">
+                    <caption>Custom Date Widgets</caption>
+                    <description />
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Disable Date">
+            <propertyGroup caption="Disable range">
+                <property key="minDate" type="expression" required="false">
+                    <caption>Min date</caption>
+                    <description></description>
+                    <returnType type="DateTime" />
+                </property>
+                <property key="maxDate" type="expression" required="false">
+                    <caption>Max date</caption>
+                    <description></description>
+                    <returnType type="DateTime" />
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Disable specific days">
                 <property key="disableDateMode" type="enumeration" defaultValue="off">
                     <caption>Disable mode</caption>
                     <description>Disable some dates, so that some invalid dates can not be choosen by user. 'Off' means no date will be disabled. 'Positive' means the dates you set below are the only available dates. 'Negative' means that all the dates excepet for the dates you set below are available.</description>
@@ -134,28 +173,47 @@
                     </attributeTypes>
                 </property>
             </propertyGroup>
-            <propertyGroup caption="Date Render">
-                <property key="dateRenderEnabled" type="boolean" defaultValue="false">
-                    <caption>Custom Date Render</caption>
-                    <description>Use Mendix content in date render space for appropriate date objects.</description>
+            <propertyGroup caption="Disable days of the week">
+                <property key="disableSunday" type="expression" required="true" defaultValue="false">
+                    <caption>Disable Sunday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
                 </property>
-                <property key="dateRenderDatasource" type="datasource" isList="true"
-                    required="false">
-                    <caption>Custom Date Datasource</caption>
-                    <description />
+                <property key="disableMonday" type="expression" required="true" defaultValue="false">
+                    <caption>Disable Monday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
                 </property>
-                <property key="dateRenderAttribute" type="attribute"
-                    dataSource="dateRenderDatasource">
-                    <caption>Date attribute</caption>
-                    <description />
-                    <attributeTypes>
-                        <attributeType name="DateTime" />
-                    </attributeTypes>
+                <property key="disableTuesday" type="expression" required="true"
+                    defaultValue="false">
+                    <caption>Disable Tuesday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
                 </property>
-                <property key="dateRenderContent" type="widgets" required="false" dataSource="dateRenderDatasource">
-                    <caption>Custom Date Widgets</caption>
-                    <description />
+                <property key="disableWednesday" type="expression" required="true"
+                    defaultValue="false">
+                    <caption>Disable Wednesday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
                 </property>
+                <property key="disableThursday" type="expression" required="true"
+                    defaultValue="false">
+                    <caption>Disable Thursday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
+                </property>
+                <property key="disableFriday" type="expression" required="true" defaultValue="false">
+                    <caption>Disable Friday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
+                </property>
+                <property key="disableSaturday" type="expression" required="true"
+                    defaultValue="false">
+                    <caption>Disable Saturday?</caption>
+                    <description></description>
+                    <returnType type="Boolean" />
+                </property>
+
             </propertyGroup>
         </propertyGroup>
         <propertyGroup caption="Cutomize View">

@@ -6,10 +6,23 @@ import zh_CN from "antd/es/date-picker/locale/zh_CN";
 import en_US from "antd/es/date-picker/locale/en_US";
 import "dayjs/locale/zh-cn";
 import "dayjs/locale/en";
+// import moment from "moment";
 
 import { AntdDatePickerContainerProps } from "../typings/AntdDatePickerProps";
 import { Alert } from "./components/Alert";
 import "./ui/AntdDatePicker.scss";
+
+const hasDisabledDays = (props: AntdDatePickerContainerProps): boolean =>
+    props.disableDateMode !== "off" ||
+    props.disableSunday.value === true ||
+    props.disableMonday.value === true ||
+    props.disableTuesday.value === true ||
+    props.disableWednesday.value === true ||
+    props.disableThursday.value === true ||
+    props.disableFriday.value === true ||
+    props.disableSaturday.value === true ||
+    props.minDate?.value !== undefined ||
+    props.maxDate?.value !== undefined;
 
 export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
     render(): ReactNode {
@@ -50,7 +63,14 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
         pickerProps.status = hasError ? "error" : undefined;
 
         pickerProps.onChange = value => {
-            props.value?.setValue(value?.toDate());
+            if (props.showTime) {
+                props.value?.setValue(value?.toDate());
+            } else {
+                // if the widget is not showing time, set the date as midnight (same as Mendix date picker)
+                const newDate = value !== null ? new Date(value.year(), value.month(), value.date()) : undefined;
+                props.value?.setValue(newDate);
+            }
+
             if (props.onChange?.canExecute) {
                 props.onChange?.execute();
             }
@@ -91,8 +111,36 @@ export class AntdDatePicker extends Component<AntdDatePickerContainerProps> {
             pickerProps.defaultPickerValue = dayjs(props.defaultPickerValue?.value);
         }
 
-        if (props.disableDateMode !== "off") {
+        if (hasDisabledDays(this.props)) {
             pickerProps.disabledDate = date => {
+                if (props.minDate?.value !== undefined && date.isBefore(props.minDate.value, "day")) {
+                    return true;
+                }
+                if (props.maxDate?.value !== undefined && date.isAfter(props.maxDate.value, "day")) {
+                    return true;
+                }
+
+                if (props.disableSunday.value === true && date.day() === 0) {
+                    return true;
+                }
+                if (props.disableMonday.value === true && date.day() === 1) {
+                    return true;
+                }
+                if (props.disableTuesday.value === true && date.day() === 2) {
+                    return true;
+                }
+                if (props.disableWednesday.value === true && date.day() === 3) {
+                    return true;
+                }
+                if (props.disableThursday.value === true && date.day() === 4) {
+                    return true;
+                }
+                if (props.disableFriday.value === true && date.day() === 5) {
+                    return true;
+                }
+                if (props.disableSaturday.value === true && date.day() === 6) {
+                    return true;
+                }
                 if (props.disableDatesDatasource?.status === "available") {
                     // console.log(`begin check disable. date = ${date}`);
                     if (props.disableDateMode === "negative") {
